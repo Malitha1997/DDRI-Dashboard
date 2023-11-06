@@ -43,7 +43,7 @@
                         <option value="Matara">Matara</option>
                         <option value="Monaragala">Monaragala</option>
                         <option value="Mulativu">Mulativu</option>
-                        <option value="Nuwara Eliya">Nuwara Eliya</option>
+                        <option value="NuwaraEliya">Nuwara Eliya</option>
                         <option value="Polonnaruwa">Polonnaruwa</option>
                         <option value="Puttalama">Puttalama</option>
                         <option value="Ratnapura">Ratnapura</option>
@@ -67,21 +67,119 @@
                     <div class="row" style="font-family: 'Poppins';font-size: 18px;">
                         <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="digitalAdoptionButton" class="btn btn-primary" href="{{route('DigitalAdoption')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #C52454;font-family: 'Poppins';font-size: 18px;">Regional Digital Adoption Readiness</a></div>
                     </div>
-                    <canvas id="radarChart" aria-label="chart" data-aos="fade-down" data-aos-duration="1000" style="margin-left: 30px;margin-top:-40px; font-size: 20px;" height="400" width="400"></canvas>
+                    <div class="row" style="font-family: 'Poppins';font-size: 18px;margin-top:20px">
+                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="comparisonButton" class="btn btn-primary" href="{{route('comparison')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #1C8113;font-family: 'Poppins';font-size: 18px;">Comparison</a></div>
+                    </div>
+                    <canvas id="radarChart" aria-label="chart" style="margin-left: 30px;margin-top:-40px; font-size: 20px;" height="400" width="400"></canvas>
+                    <div class="row" style="text-align:center">
+                        <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="width: 178px;height: 55px;margin-left:35%;background: url(&quot;{{ asset('img/Screenshot (561) 2.png') }}&quot;), var(--bs-btn-disabled-color);font-weight: bold;font-size: 20px;border-style: none;font-family: poppins;margin-top: -20px">See more</a>
+                    </div>
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
                                 <script>
                                     var ctx = document.getElementById("radarChart").getContext("2d");
-                                    var radarData = {
-                                        labels: {!! json_encode($labels) !!},
-                                        datasets: [{
-                                            label: "Index value",
+                                    var radarChart;
+                                    var chartData = {
+                                        Ampara: {
+                                            labels: {!! json_encode($labels) !!},
                                             data: {!! json_encode($ampara) !!},
-                                            backgroundColor: "transparent",
-                                            borderColor: "rgba(229, 89, 52, 1)",
-                                            borderWidth: 2,
-                                            pointBackgroundColor: "pink",
-                                            pointRadius: 6,
-                                        }],
+                                        },
+                                        Anuradhapura: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($anuradhapura) !!},
+                                        },
+                                        Badulla: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($badulla) !!},
+                                        },
+                                        Batticoloa: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($batticaloa) !!},
+                                        },
+                                        Colombo: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($colombo) !!},
+                                        },
+                                        Galle: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($galle) !!},
+                                        },
+                                        Gampaha: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($gampaha) !!},
+                                        },
+                                        Hambantota: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($hambantota) !!},
+                                        },
+                                        Jaffna: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($jaffna) !!},
+                                        },
+                                        Kalutara: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($kaluthara) !!},
+                                        },
+                                        Kandy: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($kandy) !!},
+                                        },
+                                        Kegalle: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($kegalle) !!},
+                                        },
+                                        Kilinochchi: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($kilinochchi) !!},
+                                        },
+                                        Kurunegala: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($kurunegala) !!},
+                                        },
+                                        Mannar: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($mannar) !!},
+                                        },
+                                        Matale: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($matale) !!},
+                                        },
+                                        Matara: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($matara) !!},
+                                        },
+                                        Monaragala: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($monaragala) !!},
+                                        },
+                                        Mulativu: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($mulativu) !!},
+                                        },
+                                        NuwaraEliya: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($nuwaraeliya) !!},
+                                        },
+                                        Polonnaruwa: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($polonnaruwa) !!},
+                                        },
+                                        Puttalama: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($puttalam) !!},
+                                        },
+                                        Ratnapura: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($ratnapura) !!},
+                                        },
+                                        Trincomalee: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($trincomalee) !!},
+                                        },
+                                        Vavuniya: {
+                                            labels: {!! json_encode($labels) !!},
+                                            data: {!! json_encode($vavuniya) !!},
+                                        },
+
                                     };
 
                                     var radarOptions = {
@@ -91,7 +189,6 @@
                                                 borderWidth: 6,
                                             }
                                         },
-
                                         scale: {
                                             r: {
                                                 angleLines: {
@@ -100,14 +197,41 @@
                                                 suggestedMin: 0,
                                                 suggestedMax: 35
                                             }
-
                                         }
                                     };
 
-                                    var radarChart = new Chart(ctx, {
-                                        type: 'radar',
-                                        data: radarData,
-                                        options: radarOptions,
+                                    function updateChart(selectedDistrict) {
+                                        if (radarChart) {
+                                            radarChart.destroy(); // Destroy the existing chart if it exists
+                                        }
+
+                                        var districtData = chartData[selectedDistrict];
+
+                                        radarChart = new Chart(ctx, {
+                                            type: 'radar',
+                                            data: {
+                                                labels: districtData.labels,
+                                                datasets: [{
+                                                    label: "Value",
+                                                    data: districtData.data,
+                                                    backgroundColor: "transparent",
+                                                    borderColor: "rgba(229, 89, 52, 1)",
+                                                    borderWidth: 2,
+                                                    pointBackgroundColor: "pink",
+                                                    pointRadius: 6,
+                                                }],
+                                            },
+                                            options: radarOptions,
+                                        });
+                                    }
+
+                                    var districtSelect = document.getElementById("districtSelect");
+
+                                    districtSelect.addEventListener("change", function () {
+                                        var selectedDistrict = districtSelect.value;
+                                        if (selectedDistrict !== "Select the district") {
+                                            updateChart(selectedDistrict);
+                                        }
                                     });
 
                                     var districtSelect = document.getElementById("districtSelect");
@@ -116,13 +240,15 @@
                                     var socioEconomicButton = document.getElementById("socioEconomicButton");
                                     var capacityGrowthButton = document.getElementById("capacityGrowthButton");
                                     var digitalAdoptionButton = document.getElementById("digitalAdoptionButton");
+                                    var seemorebutton = document.getElementById("seemorebutton");
+                                    var comparisonButton = document.getElementById("comparisonButton");
 
                                     function handleChartVisibility() {
                                         // Get the selected value
                                         var selectedValue = districtSelect.value;
 
                                         // Check if "Ampara" is selected
-                                        if (selectedValue === "Ampara") {
+                                        if (selectedValue === "Ampara" || selectedValue === "Anuradhapura" || selectedValue === "Badulla" || selectedValue === "Batticoloa" || selectedValue === "Colombo" || selectedValue === "Galle" || selectedValue === "Gampaha" || selectedValue === "Hambantota" || selectedValue === "Jaffna" || selectedValue === "Kalutara" || selectedValue === "Kandy" || selectedValue === "Kegalle" || selectedValue === "Kilinochchi" || selectedValue === "Kurunegala" || selectedValue === "Mannar" || selectedValue === "Matale" || selectedValue === "Matara" || selectedValue === "Monaragala" || selectedValue === "Mulativu" || selectedValue === "NuwaraEliya" || selectedValue === "Polonnaruwa" || selectedValue === "Puttalama" || selectedValue === "Ratnapura" || selectedValue === "Trincomalee" || selectedValue === "Vavuniya") {
                                             // Show the chart
                                             radarChart.canvas.style.display = "block";
                                             businessEnviromentButton.style.display = "none";
@@ -130,7 +256,10 @@
                                             socioEconomicButton.style.display = "none";
                                             capacityGrowthButton.style.display = "none";
                                             digitalAdoptionButton.style.display = "none";
-                                        } else {
+                                            comparisonButton.style.display = "none";
+                                            seemorebutton.style.display = "block";
+                                        } 
+                                        else {
                                             // Hide the chart
                                             radarChart.canvas.style.display = "none";
                                             businessEnviromentButton.style.display = "block";
@@ -138,6 +267,8 @@
                                             socioEconomicButton.style.display = "block";
                                             capacityGrowthButton.style.display = "block";
                                             digitalAdoptionButton.style.display = "block";
+                                            comparisonButton.style.display = "block";
+                                            seemorebutton.style.display = "none";
                                         }
                                     }
 
@@ -147,6 +278,7 @@
                                     // Call the function to set the initial chart visibility
                                     handleChartVisibility();
                                 </script>
+                                
                 </div>
             </div>
         </div>

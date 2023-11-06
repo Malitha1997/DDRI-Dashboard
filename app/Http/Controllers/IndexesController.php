@@ -119,7 +119,7 @@ class IndexesController extends Controller
 
         $technologyinfrastructure = [
             ['Category', 'Value'],
-            ['Ampara', 2.91],
+            ['Ampara', 2.91], //ampara
             ['Anuradhapura', $anuradhapura],
             ['Badulla', $badulla],
             ['Batticaloa', $batticaloa],
@@ -178,7 +178,7 @@ class IndexesController extends Controller
 
         $socioeconomic = [
             ['Category', 'Value'],
-            ['Ampara', 3.80],
+            ['Ampara', 3.80], //ampara
             ['Anuradhapura', $anuradhapura],
             ['Badulla', $badulla],
             ['Batticaloa', $batticaloa],
@@ -237,7 +237,7 @@ class IndexesController extends Controller
 
         $capacitygrowth = [
             ['Category', 'Value'],
-            ['Ampara', 3.76],
+            ['Ampara', 3.76], //ampara
             ['Anuradhapura', $anuradhapura],
             ['Badulla', $badulla],
             ['Batticaloa', $batticaloa],
@@ -296,7 +296,7 @@ class IndexesController extends Controller
 
         $digitaladoption = [
             ['Category', 'Value'],
-            ['Ampara', 3.84],
+            ['Ampara', 3.84], //ampara
             ['Anuradhapura', $anuradhapura],
             ['Badulla', $badulla],
             ['Batticaloa', $batticaloa],
@@ -323,7 +323,51 @@ class IndexesController extends Controller
             ['Vavuniya', $vavuniya],
         ];
 
-
         return view ('MainIndexes.DigitalAdoption',compact('digitaladoption'));
+    }
+
+    public function Ampara(){
+        $ampara=Ampara::all();
+
+        $businessEnviroment = [
+            ['Category', 'Value'],
+            ['Startups PP',1.29], //startups
+            ['Service Employment',$ampara->pluck('service_employment3')],
+            ['IT Busns/Reg Busns',$ampara->pluck('it_busns3')],
+            ['Banks PP',$ampara->pluck('banks_pp3')]
+        ];
+
+        $digitalAdoption = [
+            ['Category', 'Value'],
+            ['Device',3.57], //device
+            ['Digital Literacy',$ampara->pluck('digital_literacy3')],
+            ['Communication',$ampara->pluck('communication3')],
+            ['Internet PP',$ampara->pluck('internet3')]
+        ];
+
+        $technologyInfrastructure = [
+            ['Category', 'Value'],
+            ['4G',1.50], //4G
+            ['Digital Literacy',$ampara->pluck('mobile3')],
+            ['Communication',$ampara->pluck('active_mobile3')],
+            ['Internet PP',$ampara->pluck('broadband3')]
+        ];
+
+        $capacityGrowth = [
+            ['Category', 'Value'],
+            ['Skilled Pool',2.78], //skilledPool
+            ['Future Pool',$ampara->pluck('future_pool3')],
+            ['Secondary Pool',$ampara->pluck('secondary_pool3')],
+            ['Labs',$ampara->pluck('labs3')],
+            ['Access',$ampara->pluck('access3')]
+        ];
+
+        $socioEconomic = [
+            ['Category', 'Value'],
+            ['Income',2.78], //income
+            ['Employment',$ampara->pluck('employment3')],
+        ];
+
+        return view('Districts.Ampara',compact('businessEnviroment','digitalAdoption','technologyInfrastructure','capacityGrowth','socioEconomic'));
     }
 }

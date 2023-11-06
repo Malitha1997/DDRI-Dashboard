@@ -31,3 +31,7 @@ Route::get('/SocioEconomic', [IndexesController::class, 'SocioEconomic'])->name(
 Route::get('/CapacityGrowth', [IndexesController::class, 'CapacityGrowth'])->name('CapacityGrowth');
 Route::get('/DigitalAdoption', [IndexesController::class, 'DigitalAdoption'])->name('DigitalAdoption');
 
+Route::get('/ampara', [IndexesController::class, 'Ampara'])->name('Ampara');
+
+Route::get('/comparison', [HomeController::class, 'comparison'])->name('comparison');
+

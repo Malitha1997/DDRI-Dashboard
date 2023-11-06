@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en" style="width: 1440px;height: 1248px;box-shadow: 0px 0px 0px;">
+<html data-bs-theme="light" lang="en" style="box-shadow: 0px 0px 0px;">
 
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 <body style="border-color: rgb(46,127,208);color: rgb(255,255,255);">
     <nav class="navbar navbar-expand-md fixed-top py-3 navbar-light" data-aos="slide-down" data-aos-duration="1000" style="background: var(--bs-body-bg);height: 115px;box-shadow: 0px 0px rgb(99,84,84), 0px 0px 4px 5px var(--bs-secondary-bg-subtle);">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-2" style="width: 1440px;text-align: left;font-family: Poppins, sans-serif;"><img src="{{asset('img/duallogo-white-icta%201(1).png')}}">
+            <div class="collapse navbar-collapse" id="navcol-2" style="text-align: left;font-family: Poppins, sans-serif;"><img src="{{asset('img/duallogo-white-icta%201(1).png')}}">
                 <ul class="navbar-nav ms-auto"></ul>
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="#" style="margin-left: 50px;width: 150px;">ICTA Digital Hub</a></li>
@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Downloads</a></li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#">Our Volunteers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Our Volunteers</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                     <li class="nav-item" style="margin-left: -50px;"><a class="nav-link" href="#" style="margin-left: 70px;margin-right: 20px;background: url(&quot;assets/img/Screenshot%20(561)%205.png&quot;);color: var(--bs-body-bg);">Get Involved</a></li>
