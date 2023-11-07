@@ -32,7 +32,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function home(){
+    public function home(Request $request){
         $labels=["Business Enviroment","Digital Adoption","Technology Infrastructure","Capacity Growth","Socio Economic"];
         $businessEnviroment1=Colombo::pluck('business_enviroment2')->all();
         $digitalAdoption1=Colombo::pluck('digital_adoption2')->all();
@@ -359,10 +359,73 @@ class HomeController extends Controller
                     $capacityGrowth25,
                     $socioEconomic25,
                 ];
-        return view('home',compact('labels','mannar','kilinochchi','monaragala','vavuniya','polonnaruwa','mulativu','trincomalee','nuwaraeliya','batticaloa','matale','hambantota','anuradhapura','badulla','puttalam','ampara','colombo','gampaha','kurunegala','kandy','galle','kaluthara','matara','ratnapura','jaffna','kegalle'));
+
+        $select=$request->districtSelect;
+        return view('home',compact('select','labels','mannar','kilinochchi','monaragala','vavuniya','polonnaruwa','mulativu','trincomalee','nuwaraeliya','batticaloa','matale','hambantota','anuradhapura','badulla','puttalam','ampara','colombo','gampaha','kurunegala','kandy','galle','kaluthara','matara','ratnapura','jaffna','kegalle'));
     }
 
-    public function comparison(){
-        return view('comparison');
+    public function comparison(Request $request){
+        $district1 = $request->districtSelect1;
+        return view('comparison',compact('district1'));
+    }
+
+    public function compare(Request $request){
+        $district1 = $request->districtSelect1;
+        $district2 = $request->districtSelect2;
+        $labels=["Business Enviroment","Digital Adoption","Technology Infrastructure","Capacity Growth","Socio Economic"];
+
+        if ($district1 === "Ampara") {
+            $firstdistricts = Ampara::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Anuradhapura") {
+            $firstdistricts = Anuradhapura::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } else {
+            $firstdistricts = [];
+        }
+
+        if ($district2 === "Ampara") {
+            $seconddistricts = Ampara::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Anuradhapura") {
+            $seconddistricts = Anuradhapura::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } else {
+            $seconddistricts = [];
+        }
+
+        $districtdata1   = [
+            $businessEnviroment1,
+            $digitalAdoption1,
+            $technologyInfrastructure1,
+            $capacityGrowth1,
+            $socioEconomic1,
+        ];
+
+        $districtdata2   = [
+            $businessEnviroment2,
+            $digitalAdoption2,
+            $technologyInfrastructure2,
+            $capacityGrowth2,
+            $socioEconomic2,
+        ];
+
+        return view('comparison',compact('firstdistricts','district1','seconddistricts','district2','labels','districtdata1','districtdata2'));
     }
 }

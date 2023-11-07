@@ -22,12 +22,12 @@
                 <div class="col-md-4"><img src="{{asset('img/lk 1.png')}}" width="293" height="450" style="margin-left: 120px;height: 450px;margin-top: 80px;"></div>
                 <div class="col-md-4" style="margin-top: 20px;">
                     <div class="row"data-aos="fade-down" data-aos-duration="1000" style="width: 345px;margin-left: 50px;border-radius: 6px;border-style: solid;border-color: var(--bs-dark-border-subtle);">
-                    <select class="form-select" id="districtSelect" aria-label="Default select example" style="font-family: poppins">
+                    <select class="form-select" id="districtSelect" name="districtSelect" aria-label="Default select example" style="font-family: poppins">
                         <option selected>Select the district</option>
                         <option value="Ampara">Ampara</option>
                         <option value="Anuradhapura">Anuradhapura</option>
                         <option value="Badulla">Badulla</option>
-                        <option value="Batticoloa">Batticoloa</option>
+                        <option value="Batticaloa">Batticaloa</option>
                         <option value="Colombo">Colombo</option>
                         <option value="Galle">Galle</option>
                         <option value="Gampaha">Gampaha</option>
@@ -45,7 +45,7 @@
                         <option value="Mulativu">Mulativu</option>
                         <option value="NuwaraEliya">Nuwara Eliya</option>
                         <option value="Polonnaruwa">Polonnaruwa</option>
-                        <option value="Puttalama">Puttalama</option>
+                        <option value="Puttalam">Puttalam</option>
                         <option value="Ratnapura">Ratnapura</option>
                         <option value="Trincomalee">Trincomalee</option>
                         <option value="Vavuniya">Vavuniya</option>
@@ -74,6 +74,7 @@
                     <div class="row" style="text-align:center">
                         <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="width: 178px;height: 55px;margin-left:35%;background: url(&quot;{{ asset('img/Screenshot (561) 2.png') }}&quot;), var(--bs-btn-disabled-color);font-weight: bold;font-size: 20px;border-style: none;font-family: poppins;margin-top: -20px">See more</a>
                     </div>
+                  
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
                                 <script>
                                     var ctx = document.getElementById("radarChart").getContext("2d");
@@ -91,7 +92,7 @@
                                             labels: {!! json_encode($labels) !!},
                                             data: {!! json_encode($badulla) !!},
                                         },
-                                        Batticoloa: {
+                                        Batticaloa: {
                                             labels: {!! json_encode($labels) !!},
                                             data: {!! json_encode($batticaloa) !!},
                                         },
@@ -163,7 +164,7 @@
                                             labels: {!! json_encode($labels) !!},
                                             data: {!! json_encode($polonnaruwa) !!},
                                         },
-                                        Puttalama: {
+                                        Puttalam: {
                                             labels: {!! json_encode($labels) !!},
                                             data: {!! json_encode($puttalam) !!},
                                         },
@@ -247,8 +248,7 @@
                                         // Get the selected value
                                         var selectedValue = districtSelect.value;
 
-                                        // Check if "Ampara" is selected
-                                        if (selectedValue === "Ampara" || selectedValue === "Anuradhapura" || selectedValue === "Badulla" || selectedValue === "Batticoloa" || selectedValue === "Colombo" || selectedValue === "Galle" || selectedValue === "Gampaha" || selectedValue === "Hambantota" || selectedValue === "Jaffna" || selectedValue === "Kalutara" || selectedValue === "Kandy" || selectedValue === "Kegalle" || selectedValue === "Kilinochchi" || selectedValue === "Kurunegala" || selectedValue === "Mannar" || selectedValue === "Matale" || selectedValue === "Matara" || selectedValue === "Monaragala" || selectedValue === "Mulativu" || selectedValue === "NuwaraEliya" || selectedValue === "Polonnaruwa" || selectedValue === "Puttalama" || selectedValue === "Ratnapura" || selectedValue === "Trincomalee" || selectedValue === "Vavuniya") {
+                                        if (selectedValue !== "Select the district") {
                                             // Show the chart
                                             radarChart.canvas.style.display = "block";
                                             businessEnviromentButton.style.display = "none";
@@ -257,6 +257,61 @@
                                             capacityGrowthButton.style.display = "none";
                                             digitalAdoptionButton.style.display = "none";
                                             comparisonButton.style.display = "none";
+                                            
+                                            updateChart(selectedValue);
+                                            var route = "{{ route('Ampara') }}";
+                                            if (selectedValue === "Ampara") {
+                                                route = "{{ route('Ampara') }}";
+                                            } else if (selectedValue === "Anuradhapura") {
+                                                route = "{{ route('Anuradhapura') }}";
+                                            } else if (selectedValue === "Batticaloa") {
+                                                route = "{{ route('Batticaloa') }}";
+                                            } else if (selectedValue === "Badulla") {
+                                                route = "{{ route('Badulla') }}";
+                                            } else if (selectedValue === "Colombo") {
+                                                route = "{{ route('Colombo') }}";
+                                            } else if (selectedValue === "Galle") {
+                                                route = "{{ route('Galle') }}";
+                                            } else if (selectedValue === "Gampaha") {
+                                                route = "{{ route('Gampaha') }}";
+                                            } else if (selectedValue === "Hambantota") {
+                                                route = "{{ route('Hambantota') }}";
+                                            } else if (selectedValue === "Jaffna") {
+                                                route = "{{ route('Jaffna') }}";
+                                            } else if (selectedValue === "Kalutara") {
+                                                route = "{{ route('Kalutara') }}";
+                                            } else if (selectedValue === "Kandy") {
+                                                route = "{{ route('Kandy') }}";
+                                            } else if (selectedValue === "Kegalle") {
+                                                route = "{{ route('Kegalle') }}";
+                                            } else if (selectedValue === "Kilinochchi") {
+                                                route = "{{ route('Kilinochchi') }}";
+                                            } else if (selectedValue === "Kurunegala") {
+                                                route = "{{ route('Kurunegala') }}";
+                                            } else if (selectedValue === "Mannar") {
+                                                route = "{{ route('Mannar') }}";
+                                            } else if (selectedValue === "Matale") {
+                                                route = "{{ route('Matale') }}";
+                                            } else if (selectedValue === "Matara") {
+                                                route = "{{ route('Matara') }}";
+                                            } else if (selectedValue === "Monaragala") {
+                                                route = "{{ route('Monaragala') }}";
+                                            } else if (selectedValue === "Mulativu") {
+                                                route = "{{ route('Mulativu') }}";
+                                            } else if (selectedValue === "NuwaraEliya") {
+                                                route = "{{ route('NuwaraEliya') }}";
+                                            } else if (selectedValue === "Polonnaruwa") {
+                                                route = "{{ route('Polonnaruwa') }}";
+                                            } else if (selectedValue === "Puttalam") {
+                                                route = "{{ route('Puttalam') }}";
+                                            } else if (selectedValue === "Ratnapura") {
+                                                route = "{{ route('Ratnapura') }}";
+                                            } else if (selectedValue === "Trincomalee") {
+                                                route = "{{ route('Trincomalee') }}";
+                                            } else if (selectedValue === "Vavuniya") {
+                                                route = "{{ route('Vavuniya') }}";
+                                            }
+                                            seemorebutton.href = route;
                                             seemorebutton.style.display = "block";
                                         } 
                                         else {
@@ -269,6 +324,7 @@
                                             digitalAdoptionButton.style.display = "block";
                                             comparisonButton.style.display = "block";
                                             seemorebutton.style.display = "none";
+                                            
                                         }
                                     }
 
