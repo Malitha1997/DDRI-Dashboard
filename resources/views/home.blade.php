@@ -1,80 +1,77 @@
 @extends('layouts.navbar')
 
 @section('content')
-<div class="container" style="margin-top: 150px;">
-            <div class="row" style="width: 1430px;color: var(--bs-body-bg);">
-                <div class="col-md-4 col-xxl-4" style="margin-left: -50px;">
+<div class="container" style="margin-top: 10%">
+            <div class="row" style="color: var(--bs-body-bg);">
+                <div class="col-12 col-md-8">
                     <div class="row">
-                        <div class="col" style="margin-left: 30px;">
-                            <div class="row">
-                                <div class="col" style="margin-left: 100px;"><span style="color: rgb(12,6,86);font-size: 19px;font-family: 'Poppins';font-weight: bold;"><br><strong><span style="color: rgb(5, 44, 101);">District Digital Readiness Index</span></strong><br><br></span></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xxl-5" style="margin-top: -50px;"><span style="color: var(--bs-emphasis-color);font-size: 52px;margin-left: 200px;">.</span></div>
-                                <div class="col" style="margin-top: -6px;"><span style="color: var(--bs-emphasis-color);">District Average</span></div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><img src="{{asset('img/image 15.png')}}" width="479" height="428"></div>
-                            </div>
-                        </div>
+                        <span style="color: rgb(12,6,86);font-family: 'Poppins';font-weight: bold;"><strong><span data-aos="fade-down" data-aos-duration="1500" style="color: rgb(5, 44, 101);"><br><br>District Digital Readiness Index</span></strong></span>
+                    </div>
+                    <div class="row">
+                        <video data-aos="fade-in" data-aos-duration="1500" controls  autoplay muted style="margin-top:2%">
+                        <source src="{{asset('img/Lanka.mp4')}}" type="video/mp4"></video>
                     </div>
                 </div>
-                <div class="col-md-4"><img src="{{asset('img/lk 1.png')}}" width="293" height="450" style="margin-left: 120px;height: 450px;margin-top: 80px;"></div>
-                <div class="col-md-4" style="margin-top: 20px;">
-                    <div class="row"data-aos="fade-down" data-aos-duration="1000" style="width: 345px;margin-left: 50px;border-radius: 6px;border-style: solid;border-color: var(--bs-dark-border-subtle);">
-                    <select class="form-select" id="districtSelect" name="districtSelect" aria-label="Default select example" style="font-family: poppins">
-                        <option selected>Select the district</option>
-                        <option value="Ampara">Ampara</option>
-                        <option value="Anuradhapura">Anuradhapura</option>
-                        <option value="Badulla">Badulla</option>
-                        <option value="Batticaloa">Batticaloa</option>
-                        <option value="Colombo">Colombo</option>
-                        <option value="Galle">Galle</option>
-                        <option value="Gampaha">Gampaha</option>
-                        <option value="Hambantota">Hambantota</option>
-                        <option value="Jaffna">Jaffna</option>
-                        <option value="Kalutara">Kalutara</option>
-                        <option value="Kandy">Kandy</option>
-                        <option value="Kegalle">Kegalle</option>
-                        <option value="Kilinochchi">Kilinochchi</option>
-                        <option value="Kurunegala">Kurunegala</option>
-                        <option value="Mannar">Mannar</option>
-                        <option value="Matale">Matale</option>
-                        <option value="Matara">Matara</option>
-                        <option value="Monaragala">Monaragala</option>
-                        <option value="Mulativu">Mulativu</option>
-                        <option value="NuwaraEliya">Nuwara Eliya</option>
-                        <option value="Polonnaruwa">Polonnaruwa</option>
-                        <option value="Puttalam">Puttalam</option>
-                        <option value="Ratnapura">Ratnapura</option>
-                        <option value="Trincomalee">Trincomalee</option>
-                        <option value="Vavuniya">Vavuniya</option>
-                    </select>
-
+                <div class="col-md-4 col-sm-12">
+                <div class="container">
+                    <div class="row" style="margin-top:5%">
+                        <select class="form-select" data-aos="fade-down" data-aos-duration="750" id="districtSelect" name="districtSelect" aria-label="Default select example" style="font-family: poppins;width:100%">
+                            <option selected>Select the district</option>
+                            <option value="Ampara">Ampara</option>
+                            <option value="Anuradhapura">Anuradhapura</option>
+                            <option value="Badulla">Badulla</option>
+                            <option value="Batticaloa">Batticaloa</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Galle">Galle</option>
+                            <option value="Gampaha">Gampaha</option>
+                            <option value="Hambantota">Hambantota</option>
+                            <option value="Jaffna">Jaffna</option>
+                            <option value="Kalutara">Kalutara</option>
+                            <option value="Kandy">Kandy</option>
+                            <option value="Kegalle">Kegalle</option>
+                            <option value="Kilinochchi">Kilinochchi</option>
+                            <option value="Kurunegala">Kurunegala</option>
+                            <option value="Mannar">Mannar</option>
+                            <option value="Matale">Matale</option>
+                            <option value="Matara">Matara</option>
+                            <option value="Monaragala">Monaragala</option>
+                            <option value="Mulativu">Mulativu</option>
+                            <option value="NuwaraEliya">Nuwara Eliya</option>
+                            <option value="Polonnaruwa">Polonnaruwa</option>
+                            <option value="Puttalam">Puttalam</option>
+                            <option value="Ratnapura">Ratnapura</option>
+                            <option value="Trincomalee">Trincomalee</option>
+                            <option value="Vavuniya">Vavuniya</option>
+                        </select>
                     </div>
+                    
                     <div class="row">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 30px;"><a id="businessEnviromentButton" class="btn btn-primary" href="{{route('BusinessEnviroment')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #1851A7;font-family: 'Poppins';font-size: 18px;">Regional Business Environment Readiness</a></div>
+                        <a data-aos="fade-up" data-aos-duration="750" id="businessEnviromentButton" class="btn btn-primary" href="{{route('BusinessEnviroment')}}" type="button" style="width: 100%;background: #1851A7;font-family: 'Poppins';text-align:center;margin-top:5%">Regional Business Environment <br>Readiness</a>
                     </div>
-                    <div class="row" style="font-family: 'Poppins';font-size: 18px;">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="technologyInfrastructureButton" class="btn btn-primary" href="{{route('TechnologyInfrastructure')}}" type="button" style="border-width:0;margin-left: 50px;background: #1C8113;font-family: 'Poppins';font-size: 18px;width: 345px;">Regional Technology Infrastructure Readiness</a></div>
+                    <div class="row" style="font-family: 'Poppins';">
+                        <a data-aos="fade-up" data-aos-duration="750" id="technologyInfrastructureButton" class="btn btn-primary" href="{{route('TechnologyInfrastructure')}}" type="button" style="border-width:0;background: #1C8113;font-family: 'Poppins';width: 100%;margin-top:3%">Regional Technology Infrastructure <br>Readiness</a>
                     </div>
-                    <div class="row" style="font-family: 'Poppins';font-size: 18px;">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="socioEconomicButton" class="btn btn-primary" href="{{route('SocioEconomic')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #198F9F;font-family: 'Poppins';font-size: 18px;">Regional Socio Economic Readiness</a></div>
+                    <div class="row" style="font-family: 'Poppins';">
+                        <a data-aos="fade-up" data-aos-duration="750" id="socioEconomicButton" class="btn btn-primary" href="{{route('SocioEconomic')}}" type="button" style="border-width:0;width: 100%;background: #198F9F;font-family: 'Poppins';margin-top:3%">Regional Socio Economic <br>Readiness</a>
                     </div>
-                    <div class="row" style="font-family: 'Poppins';font-size: 18px;">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="capacityGrowthButton" class="btn btn-primary" href="{{route('CapacityGrowth')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #6A1CA8;font-family: 'Poppins';font-size: 18px;">Regional Capacity Growth Readiness</a></div>
+                    <div class="row" style="font-family: 'Poppins';">
+                        <a data-aos="fade-up" data-aos-duration="750" id="capacityGrowthButton" class="btn btn-primary" href="{{route('CapacityGrowth')}}" type="button" style="border-width:0;width: 100%;background: #6A1CA8;font-family: 'Poppins';margin-top:3%">Regional Capacity Growth <br>Readiness</a>
                     </div>
-                    <div class="row" style="font-family: 'Poppins';font-size: 18px;">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="digitalAdoptionButton" class="btn btn-primary" href="{{route('DigitalAdoption')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #C52454;font-family: 'Poppins';font-size: 18px;">Regional Digital Adoption Readiness</a></div>
+                    <div class="row" style="font-family: 'Poppins';">
+                        <a data-aos="fade-up" data-aos-duration="750" id="digitalAdoptionButton" class="btn btn-primary" href="{{route('DigitalAdoption')}}" type="button" style="border-width:0;width: 100%;background: #C52454;font-family: 'Poppins';margin-top:3%">Regional Digital Adoption <br>Readiness</a>
                     </div>
-                    <div class="row" style="font-family: 'Poppins';font-size: 18px;margin-top:20px">
-                        <div class="col" data-aos="fade-up" data-aos-duration="750" style="margin-top: 10px;font-family: 'Poppins';font-size: 18px;"><a id="comparisonButton" class="btn btn-primary" href="{{route('comparison')}}" type="button" style="border-width:0;margin-left: 50px;width: 345px;background: #1C8113;font-family: 'Poppins';font-size: 18px;">Comparison</a></div>
+                    <div class="row" style="font-family: 'Poppins';margin-top:5%">
+                        <a data-aos="fade-up" data-aos-duration="750" id="comparisonButton" class="btn btn-primary" href="{{route('comparison')}}" type="button" style="margin-left:35%;background: url(&quot;{{asset('img/Screenshot (561) 6.png')}}&quot;);height: 40px;width: 115px;border-style: none;font-weight: bold;">Comparison</a>
                     </div>
-                    <canvas id="radarChart" aria-label="chart" style="margin-left: 30px;margin-top:-40px; font-size: 20px;" height="400" width="400"></canvas>
-                    <div class="row" style="text-align:center">
-                        <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="width: 178px;height: 55px;margin-left:35%;background: url(&quot;{{ asset('img/Screenshot (561) 2.png') }}&quot;), var(--bs-btn-disabled-color);font-weight: bold;font-size: 20px;border-style: none;font-family: poppins;margin-top: -20px">See more</a>
                     </div>
+                
                   
+                <div class="row"><canvas id="radarChart" aria-label="chart" height="370%" width="370%"></canvas></div>                
+                    
+                    <div class="row" style="text-align:center">
+                        <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="margin-left:34%;font-family:poppins;background: url(&quot;{{asset('img/Screenshot (561) 3.png')}}&quot;);height: 40px;width: 115px;border-style: none;font-weight: bold;">See more</a>
+                    </div>
+                </div>
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
                                 <script>
                                     var ctx = document.getElementById("radarChart").getContext("2d");
@@ -236,6 +233,7 @@
                                     });
 
                                     var districtSelect = document.getElementById("districtSelect");
+                                    // var radarChart = document.getElementById("radarChart");
                                     var businessEnviromentButton = document.getElementById("businessEnviromentButton");
                                     var technologyInfrastructureButton = document.getElementById("technologyInfrastructureButton");
                                     var socioEconomicButton = document.getElementById("socioEconomicButton");
@@ -334,7 +332,17 @@
                                     // Call the function to set the initial chart visibility
                                     handleChartVisibility();
                                 </script>
-                                
+                          
+                
+                <div class="row">
+                    <div class="col-6" style="font-family:poppins;margin-bottom:2%;margin-top: 20px;width: 1190px;margin-left: 5%;background: var(--bs-secondary-bg);border-style: solid;border-color: var(--bs-dark-border-subtle);border-radius: 10px;">
+                        <div class="row">
+                            <div class="col" style="text-align: center;"><h4 style="color: var(--bs-primary-text-emphasis);border-color: var(--bs-emphasis-color);">You can Download the DDRI report here&nbsp;</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="text-align: center;"><a class="btn btn-primary" href="{{ route('download') }}"  type="button" style="margin-top: 20px;margin-bottom: 20px;background: #1F2471;">Download</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

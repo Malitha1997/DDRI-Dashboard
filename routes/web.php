@@ -61,3 +61,5 @@ Route::get('/comparison', [HomeController::class, 'comparison'])->name('comparis
 
 Route::post('/comparisonDistricts', [HomeController::class, 'compare'])->name('compare');
 
+Route::get('download', [HomeController::class,'download'])->name('download');
+

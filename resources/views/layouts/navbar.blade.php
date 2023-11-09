@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('cssfile/aos.min.css')}}">
     <link rel="stylesheet" href="{{asset('cssfile/Bold-BS4-Footer-Big-Logo.css')}}">
     <link rel="stylesheet" href="{{asset('cssfile/Navbar-Right-Links-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('cssfile/styles.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('cssfile/styles.css')}}"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
@@ -22,12 +22,12 @@
 </head>
 
 <body style="border-color: rgb(46,127,208);color: rgb(255,255,255);">
-    <nav class="navbar navbar-expand-md fixed-top py-3 navbar-light" data-aos="slide-down" data-aos-duration="1000" style="background: var(--bs-body-bg);height: 115px;box-shadow: 0px 0px rgb(99,84,84), 0px 0px 4px 5px var(--bs-secondary-bg-subtle);">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" data-aos="slide-down" data-aos-duration="1000" style="background: var(--bs-body-bg);box-shadow: 0px 0px rgb(99,84,84), 0px 0px 4px 5px var(--bs-secondary-bg-subtle);">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2" style="text-align: left;font-family: Poppins, sans-serif;"><img src="{{asset('img/duallogo-white-icta%201(1).png')}}">
                 <ul class="navbar-nav ms-auto"></ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#" style="margin-left: 50px;width: 150px;">ICTA Digital Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ICTA Digital Hub</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Capacity Building Drive</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Downloads</a></li>
                 </ul>
@@ -35,7 +35,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Our Volunteers</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                    <li class="nav-item" style="margin-left: -50px;"><a class="nav-link" href="#" style="margin-left: 70px;margin-right: 20px;background: url(&quot;assets/img/Screenshot%20(561)%205.png&quot;);color: var(--bs-body-bg);">Get Involved</a></li>
+                    <li class="nav-item" style="margin-left: -50px;"><button class="nav-link" type="button" href="#" style="margin-left: 70px;margin-right: 20px;background: url(&quot;{{asset('img/Screenshot (561) 5.png')}}&quot;);color: var(--bs-body-bg);">Get Involved</button></li>
                 </ul>
             </div>
         </div>

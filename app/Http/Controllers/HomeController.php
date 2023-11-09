@@ -34,6 +34,7 @@ class HomeController extends Controller
 {
     public function home(Request $request){
         $labels=["Business Enviroment","Digital Adoption","Technology Infrastructure","Capacity Growth","Socio Economic"];
+        $exist=$request->districtSelect;
         $businessEnviroment1=Colombo::pluck('business_enviroment2')->all();
         $digitalAdoption1=Colombo::pluck('digital_adoption2')->all();
         $technologyInfrastructure1=Colombo::pluck('technology_infrastructure2')->all();
@@ -360,8 +361,7 @@ class HomeController extends Controller
                     $socioEconomic25,
                 ];
 
-        $select=$request->districtSelect;
-        return view('home',compact('select','labels','mannar','kilinochchi','monaragala','vavuniya','polonnaruwa','mulativu','trincomalee','nuwaraeliya','batticaloa','matale','hambantota','anuradhapura','badulla','puttalam','ampara','colombo','gampaha','kurunegala','kandy','galle','kaluthara','matara','ratnapura','jaffna','kegalle'));
+        return view('home',compact('exist','labels','mannar','kilinochchi','monaragala','vavuniya','polonnaruwa','mulativu','trincomalee','nuwaraeliya','batticaloa','matale','hambantota','anuradhapura','badulla','puttalam','ampara','colombo','gampaha','kurunegala','kandy','galle','kaluthara','matara','ratnapura','jaffna','kegalle'));
     }
 
     public function comparison(Request $request){
@@ -370,6 +370,11 @@ class HomeController extends Controller
     }
 
     public function compare(Request $request){
+        request()->validate([
+            'districtSelect1'=>'required',
+            'districtSelect2'=>'required'
+        ]);
+
         $district1 = $request->districtSelect1;
         $district2 = $request->districtSelect2;
         $labels=["Business Enviroment","Digital Adoption","Technology Infrastructure","Capacity Growth","Socio Economic"];
@@ -383,6 +388,182 @@ class HomeController extends Controller
             $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
         } elseif ($district1 === "Anuradhapura") {
             $firstdistricts = Anuradhapura::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } 
+        if ($district1 === "Colombo") {
+            $firstdistricts = Colombo::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Gampaha") {
+            $firstdistricts = Gampaha::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Kurunegala") {
+            $firstdistricts = Kurunagala::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Kandy") {
+            $firstdistricts = Kandy::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Galle") {
+            $firstdistricts = Galle::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Kalutara") {
+            $firstdistricts = Kaluthara::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Matara") {
+            $firstdistricts = Matara::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Ratnapura") {
+            $firstdistricts = Ratnapura::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Jaffna") {
+            $firstdistricts = Jaffna::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Kegalle") {
+            $firstdistricts = Kegalle::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Puttalam") {
+            $firstdistricts = Puttalam::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Badulla") {
+            $firstdistricts = Badulla::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Anuradhapura") {
+            $firstdistricts = Anuradhapura::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Hambantota") {
+            $firstdistricts = Hambantota::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Matale") {
+            $firstdistricts = Matale::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Ampara") {
+            $firstdistricts = Ampara::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Batticaloa") {
+            $firstdistricts = Batticaloa::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "NuwaraEliya") {
+            $firstdistricts = NuwaraEliya::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Trincomalee") {
+            $firstdistricts = Trincomalee::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Polonnaruwa") {
+            $firstdistricts = Polonnaruwa::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Vavuniya") {
+            $firstdistricts = Vavuniya::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Monaragala") {
+            $firstdistricts = Monaragala::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Kilinochchi") {
+            $firstdistricts = Kilinochchi::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Mannar") {
+            $firstdistricts = Mannar::all();
+            $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth1 = $firstdistricts->pluck('capacity_growth2')->first();
+            $socioEconomic1 = $firstdistricts->pluck('socio_economic2')->first();
+        } elseif ($district1 === "Mulativu") {
+            $firstdistricts = Mulativu::all();
             $businessEnviroment1 = $firstdistricts->pluck('business_enviroment2')->first();
             $digitalAdoption1 = $firstdistricts->pluck('digital_adoption2')->first();
             $technologyInfrastructure1 = $firstdistricts->pluck('technology_infrastructure2')->first();
@@ -406,7 +587,182 @@ class HomeController extends Controller
             $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
             $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
             $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
-        } else {
+        } if ($district2 === "Colombo") {
+            $seconddistricts = Colombo::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Gampaha") {
+            $seconddistricts = Gampaha::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Kurunegala") {
+            $seconddistricts = Kurunagala::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Kandy") {
+            $seconddistricts = Kandy::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Galle") {
+            $seconddistricts = Galle::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Kalutara") {
+            $seconddistricts = Kaluthara::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Matara") {
+            $seconddistricts = Matara::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Ratnapura") {
+            $seconddistricts = Ratnapura::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Jaffna") {
+            $seconddistricts = Jaffna::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Kegalle") {
+            $seconddistricts = Kegalle::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Puttalam") {
+            $seconddistricts = Puttalam::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Badulla") {
+            $seconddistricts = Badulla::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Anuradhapura") {
+            $seconddistricts = Anuradhapura::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Hambantota") {
+            $seconddistricts = Hambantota::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Matale") {
+            $seconddistricts = Matale::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Ampara") {
+            $seconddistricts = Ampara::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Batticaloa") {
+            $seconddistricts = Batticaloa::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "NuwaraEliya") {
+            $seconddistricts = NuwaraEliya::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Trincomalee") {
+            $seconddistricts = Trincomalee::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Polonnaruwa") {
+            $seconddistricts = Polonnaruwa::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Vavuniya") {
+            $seconddistricts = Vavuniya::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Monaragala") {
+            $seconddistricts = Monaragala::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Kilinochchi") {
+            $seconddistricts = Kilinochchi::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Mannar") {
+            $seconddistricts = Mannar::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        } elseif ($district2 === "Mulativu") {
+            $seconddistricts = Mulativu::all();
+            $businessEnviroment2 = $seconddistricts->pluck('business_enviroment2')->first();
+            $digitalAdoption2 = $seconddistricts->pluck('digital_adoption2')->first();
+            $technologyInfrastructure2 = $seconddistricts->pluck('technology_infrastructure2')->first();
+            $capacityGrowth2 = $seconddistricts->pluck('capacity_growth2')->first();
+            $socioEconomic2 = $seconddistricts->pluck('socio_economic2')->first();
+        }else {
             $seconddistricts = [];
         }
 
@@ -427,5 +783,10 @@ class HomeController extends Controller
         ];
 
         return view('comparison',compact('firstdistricts','district1','seconddistricts','district2','labels','districtdata1','districtdata2'));
+    }
+
+    public function download(){
+        $path=public_path('DDRI Report.pdf');
+        return response()->download($path);
     }
 }

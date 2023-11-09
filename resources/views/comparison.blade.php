@@ -1,19 +1,17 @@
 @extends('layouts.navbar')
 
 @section('content')
-<section style="margin-bottom: 200px;">
+<section style="margin-bottom: 150px;">
         <div class="container" style="margin-top: 150px;">
             <div class="row">
-                <div class="col" data-aos="fade-down" data-aos-duration="750">
-                    <div class="row">
-                        <div class="col" style="text-align: center;margin-top: -20px;margin-bottom: 50px;">
+                <div class="col" >
+                    <div class="row" data-aos="fade-down" data-aos-duration="750">
+                        <div class="col" style="text-align: center;margin-bottom: 50px;">
                         <a class="btn btn-primary d-flex flex-row justify-content-center align-items-start" type="button" style="margin-left: 0px;background: url(&quot;{{ asset('img/Back.png') }}&quot;), rgba(13,110,253,0);border-color: rgba(255,255,255,0);width: 30px;height: 30px;" href="{{route('home')}}"></a>
-                        <span style="color: #09184B;font-size: 34px;font-weight: bold;font-family: 'Poppins';text-align: center;"><br>District Digital Readiness Index<br><br></span></div>
+                        <span style="color: #09184B;font-size: 34px;font-weight: bold;font-family: 'Poppins';text-align: center;">District Digital Readiness Index<br><br></span></div>
                     </div>
-                    <div class="row" style="width: 1300px;text-align: center;margin-left: 200px;">
-                        <div class="col-xxl-3" style="margin-top: -50px;margin-left: 0px;text-align: center;">
-                            <div class="row">
-                                <div class="col">
+                    <div class="row" data-aos="fade-down" data-aos-duration="750" style="text-align: center;">
+                        <div class="col-6 col-md-4" style="text-align: center;">
                                 <form method="POST" action="{{ route('compare') }}">
                                     {{csrf_field()}}    
                                 <select class="form-select" id="districtSelect1" name="districtSelect1" aria-label="Default select example" style="font-family: poppins" value="{{ old('districtSelect1')}}">
@@ -44,14 +42,12 @@
                                     <option value="Trincomalee">Trincomalee</option>
                                     <option value="Vavuniya">Vavuniya</option>
                                 </select>
-
-                                </div>
-                            </div>
+                                @if($errors->has('full_name'))
+                                <p class="text-danger"><b>Select a District</b></p>
+                                @endif
+                                
                         </div>
-                        <div class="col-xxl-3" style="margin-left: 0px;text-align: center;margin-top: -50px;">
-                            
-                            <div class="row">
-                                <div class="col">
+                        <div class="col-6 col-md-4" style="text-align: center;">
                                 <select class="form-select" id="districtSelect2" name="districtSelect2" aria-label="Default select example" style="font-family: poppins">
                                     <option selected>Select the district 2</option>
                                     <option value="Ampara">Ampara</option>
@@ -80,14 +76,13 @@
                                     <option value="Trincomalee">Trincomalee</option>
                                     <option value="Vavuniya">Vavuniya</option>
                                 </select>
+                                @if($errors->has('full_name'))
+                                <p class="text-danger"><b>Select a District</b></p>
+                                @endif
                                 
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-xxl-4" style="margin-right: 50px;margin-left: 20px;margin-top: -50px;">
-                            <div class="row">
-                                <div class="col-xxl-1"><button class="btn btn-primary" type="sumbit" style="width: 155px;height: 40px;font-family:poppins">Compare</button></div>
-                            </div>
+                        <div class="col" style="">
+                                <button class="btn btn-primary" type="sumbit" style="width:30%;height: 40px;font-family:poppins">Compare</button>
                         </div>
                         </form>
                     </div>
@@ -95,67 +90,68 @@
                         <div class="col-xxl-11" style="margin-top: 30px;text-align: center;"><span style="color: var(--bs-emphasis-color);font-size: 25px;font-family:poppins"><br>Select District 1 and District 2 to see the comparison<br><br></span></div>
                     </div> -->
                     @if($district1!== null)
-                    <div class="row" style="margin-top: 20px;border-left-style: solid;border-left-color: var(--bs-body-bg);">
-                    <div class="col-xxl-12" style="border-left-style: solid;border-left-color: var(--bs-table-bg);">
-                    <div class="table-responsive" data-aos="fade-down" data-aos-duration="750" style="font-family: 'Poppins';font-size: 18px;border-left-style: solid;border-left-color: var(--bs-table-bg);width:60%">
-                        <table class="table">
-                            <thead style="border-left-style: solid;border-left-color: var(--bs-table-bg);">
-                                <tr>
-                                    <th style="width: 570px;border-style: solid;border-color: var(--bs-table-color);text-align: center;height: 50px;">Readiness</th>
-                                    <th style="width: 340px;border-style: solid;border-color: var(--bs-table-color);text-align: center;">{{$district1}}</th>
-                                    <th style="width: 340px;border-style: solid;border-color: var(--bs-table-color);text-align: center;">{{$district2}}</th>
-                                </tr>
-                            </thead>
+                    <div class="row" style="border-left-style: solid;border-left-color: var(--bs-body-bg);margin-top:2%">
+                    <div class="col-12 col-md-8" style="border-left-style: solid;border-left-color: var(--bs-table-bg);">
+                        <div class="table-responsive" data-aos="fade-down" data-aos-duration="750" style="font-family: 'Poppins';border-left-style: solid;border-left-color: var(--bs-table-bg);">
+                            <table class="table">
+                                <thead style="border-left-style: solid;border-left-color: var(--bs-table-bg);">
+                                    <tr>
+                                        <th style="border-style: solid;border-color: var(--bs-table-color);text-align: center;">Readiness</th>
+                                        <th style="border-style: solid;border-color: var(--bs-table-color);text-align: center;">{{$district1}}</th>
+                                        <th style="border-style: solid;border-color: var(--bs-table-color);text-align: center;">{{$district2}}</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody style="background: #1851A7;">
-                                <tr style="height: 50px;">
-                                    <td style="text-align: left;background: var(--bs-warning-border-subtle);">Regional Business Environment Readiness</td>
-                                    @foreach($firstdistricts as $district)
-                                    <td style="text-align: center;background: var(--bs-warning-border-subtle);">{{$district->business_enviroment2}}</td>
-                                    @endforeach
-                                    @foreach($seconddistricts as $seconddistrict)
-                                    <td style="text-align: center;background: var(--bs-warning-border-subtle);">{{$seconddistrict->business_enviroment2}}</td>
-                                    @endforeach
-                                </tr>
-                                <tr style="text-align: center;height: 50px;">
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: var(--bs-danger-bg-subtle);">Regional Technology Infrastructure Readiness</td>
-                                    @foreach($firstdistricts as $district)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: var(--bs-danger-bg-subtle);">{{$district->technology_infrastructure2}}</td>
-                                    @endforeach
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: var(--bs-danger-bg-subtle);">{{$seconddistrict->technology_infrastructure2}}</td>
-                                </tr>
-                                <tr style="height: 50px;">
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #c6efac;">Regional Socio Economic Readiness</td>
-                                    @foreach($firstdistricts as $district)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #c6efac;">{{$district->socio_economic2}}</td>
-                                    @endforeach
-                                    @foreach($seconddistricts as $seconddistrict)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #c6efac;">{{$seconddistrict->socio_economic2}}</td>
-                                    @endforeach
-                                </tr>
-                                <tr style="height: 50px;">
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #e8cab8;">Regional Capacity Growth Readiness</td>
-                                    @foreach($firstdistricts as $district)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #e8cab8;">{{$district->capacity_growth2}}</td>
-                                    @endforeach
-                                    @foreach($seconddistricts as $seconddistrict)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #e8cab8;">{{$seconddistrict->capacity_growth2}}</td>
-                                    @endforeach
-                                </tr>
-                                <tr style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;height: 50px;">
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: var(--bs-primary-bg-subtle);">Regional Digital Adoption Readiness</td>
-                                    @foreach($firstdistricts as $district)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: var(--bs-primary-bg-subtle);">{{$district->digital_adoption2}}</td>
-                                    @endforeach
-                                    @foreach($seconddistricts as $seconddistrict)
-                                    <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: var(--bs-primary-bg-subtle);">{{$seconddistrict->digital_adoption2}}</td>
-                                    @endforeach
-                                </tr>
-                            </tbody>
-                        </table>
+                                <tbody style="background: #1851A7;">
+                                    <tr>
+                                        <td style="text-align: left;background: #CDCDCD">Regional Business Environment Readiness</td>
+                                        @foreach($firstdistricts as $district)
+                                        <td style="text-align: center;background: #CDCDCD">{{$district->business_enviroment2}}</td>
+                                        @endforeach
+                                        @foreach($seconddistricts as $seconddistrict)
+                                        <td style="text-align: center;background: #CDCDCD">{{$seconddistrict->business_enviroment2}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr style="text-align: center;height: 50px;">
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #fff">Regional Technology Infrastructure Readiness</td>
+                                        @foreach($firstdistricts as $district)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #fff">{{$district->technology_infrastructure2}}</td>
+                                        @endforeach
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #fff">{{$seconddistrict->technology_infrastructure2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #CDCDCD">Regional Socio Economic Readiness</td>
+                                        @foreach($firstdistricts as $district)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #CDCDCD">{{$district->socio_economic2}}</td>
+                                        @endforeach
+                                        @foreach($seconddistricts as $seconddistrict)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #CDCDCD">{{$seconddistrict->socio_economic2}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr>
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #fff">Regional Capacity Growth Readiness</td>
+                                        @foreach($firstdistricts as $district)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #fff">{{$district->capacity_growth2}}</td>
+                                        @endforeach
+                                        @foreach($seconddistricts as $seconddistrict)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #fff">{{$seconddistrict->capacity_growth2}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;height: 50px;">
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: left;background: #CDCDCD">Regional Digital Adoption Readiness</td>
+                                        @foreach($firstdistricts as $district)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #CDCDCD">{{$district->digital_adoption2}}</td>
+                                        @endforeach
+                                        @foreach($seconddistricts as $seconddistrict)
+                                        <td style="border-left-style: solid;border-left-color: var(--bs-body-color);text-align: center;background: #CDCDCD">{{$seconddistrict->digital_adoption2}}</td>
+                                        @endforeach
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="col-xxl-12">
-                    <canvas id="chartId" aria-label="chart" data-aos="fade-down" data-aos-duration="1000" style="margin-left:40px; font-size: 20px;" height="450" width="450"></canvas>
+                    <div class="col-6 col-md-4">
+                    <canvas id="chartId" data-aos="fade-in" data-aos-duration="500" aria-label="chart" style="" height="370%" width="370%"></canvas>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
                     <script>
                         var ctx = document.getElementById("chartId").getContext("2d");
