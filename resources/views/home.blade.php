@@ -336,7 +336,7 @@
                           
                 
                 <div class="row">
-                    <div class="col-6" style="font-family:poppins;margin-bottom:2%;margin-top: 20px;width: 1190px;margin-left: 5%;background: var(--bs-secondary-bg);border-style: solid;border-color: var(--bs-dark-border-subtle);border-radius: 10px;">
+                    <div class="col-12" style="font-family:poppins;margin-bottom:2%;margin-top: 2%;background: var(--bs-secondary-bg);border-style: solid;border-color: var(--bs-dark-border-subtle);border-radius: 10px;">
                         <div class="row">
                             <div class="col" style="text-align: center;"><h4 style="color: var(--bs-primary-text-emphasis);border-color: var(--bs-emphasis-color);">You can Download the DDRI report here&nbsp;</h4></div>
                         </div>
