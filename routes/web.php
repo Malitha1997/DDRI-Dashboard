@@ -15,15 +15,15 @@ use App\Http\Controllers\IndexesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/navbar', function () {
     return view('layouts.navbar');
 });
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/BusinessEnviroment', [IndexesController::class, 'BusinessEnviroment'])->name('BusinessEnviroment');
 Route::get('/TechnologyInfrastructure', [IndexesController::class, 'TechnologyInfrastructure'])->name('TechnologyInfrastructure');
