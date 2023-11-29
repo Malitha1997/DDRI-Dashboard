@@ -61,17 +61,18 @@
                         <a data-aos="fade-up" data-aos-duration="750" id="digitalAdoptionButton" class="btn btn-primary" href="{{route('DigitalAdoption')}}" type="button" style="border-width:0;width: 100%;background: #C52454;font-family: 'Poppins';margin-top:3%">Regional Digital Adoption <br>Readiness</a>
                     </div>
                     <div class="row" style="font-family: 'Poppins';margin-top:5%">
-                        <a data-aos="fade-up" data-aos-duration="750" id="comparisonButton" class="btn btn-primary" href="{{route('comparison')}}" type="button" style="margin-left:35%;background: url(&quot;{{asset('img/Screenshot (561) 6.png')}}&quot;);height: 40px;width: 115px;border-style: none;font-weight: bold;">Comparison</a>
+                        <a data-aos="fade-up" data-aos-duration="750" id="comparisonButton" class="btn btn-primary" href="{{route('comparison')}}" type="button" style="margin-left:35%;background: linear-gradient(to bottom, #F44567 0%, #F97B5F 49%);height: 40px;width: 115px;border-style: none;">Comparison</a>
                     </div>
                     </div>
                 
-                  
+                
                 <div class="row"><canvas id="radarChart" aria-label="chart" height="370%" width="370%"></canvas></div>                
                     
                     <div class="row" style="text-align:center">
-                        <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="margin-left:34%;font-family:poppins;background: url(&quot;{{asset('img/Screenshot (561) 3.png')}}&quot;);height: 40px;width: 115px;border-style: none;font-weight: bold;">See more</a>
+                        <a class="btn btn-primary" id="seemorebutton" href="{{route('Ampara')}}" type="button" style="margin-left:34%;font-family:poppins;background: linear-gradient(to bottom, #F44567 0%, #F97B5F 49%);height: 40px;width: 115px;border-style: none;">See more</a>
                     </div>
                 </div>
+                
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
                                 <script>
                                     var ctx = document.getElementById("radarChart").getContext("2d");

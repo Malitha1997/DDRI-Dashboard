@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <div class="container" style="margin-top: 15%;">
+        <div class="container" id="div3">
             <div class="row">   
                 <div class="col-lg-1 col-sm-1">
                     <a data-aos="fade-down" data-aos-duration="750" class="btn btn-primary d-flex flex-row justify-content-center align-items-start" type="button" style="margin-left: 0px;background: url(&quot;{{ asset('img/Back.png') }}&quot;), rgba(13,110,253,0);border-color: rgba(255,255,255,0);width: 30px;height: 30px;" href="{{route('home')}}"></a>
@@ -21,7 +21,7 @@
                         <div class="col" style="margin-top: 3%;text-align: center;">
                         <!-- <img src="assets/img/image%2029.png" width="588" height="274" style="height: 304px;"> -->
                         <div class="container" data-aos="fade-down" data-aos-duration="1000" id="chart_div" style="height:274px;font-family: Poppins;"></div>
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                        
                         <script>
                             google.charts.load('current', { packages: ['corechart', 'bar'] });
                             google.charts.setOnLoadCallback(drawBasic);
@@ -60,7 +60,7 @@
                         <div class="col-xxl-12" style="margin-top: 3%;">
                         <!-- <img src="assets/img/image%2028.png" width="586" height="304"> -->
                         <div class="container" data-aos="fade-down" data-aos-duration="1000" id="chart_div2" style="height:274px;font-family: Poppins;"></div>
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                       
                         <script>
                             google.charts.load('current', { packages: ['corechart', 'bar'] });
                             google.charts.setOnLoadCallback(drawBasic);
@@ -102,7 +102,7 @@
                                 <div class="col" style="margin-top: 3%;text-align: center;">
                                 <!-- <img src="assets/img/image%2030.png" width="588" height="274" style="height: 304px;"> -->
                                 <div class="container" data-aos="fade-down" data-aos-duration="1000" id="chart_div3" style="height:274px;font-family: Poppins;"></div>
-                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                
                                 <script>
                                     google.charts.load('current', { packages: ['corechart', 'bar'] });
                                     google.charts.setOnLoadCallback(drawBasic);
@@ -141,7 +141,7 @@
                                 <div class="col" style="margin-top: 3%;">
                                 <!-- <img src="assets/img/image%2034.png" width="586" height="304"> -->
                                 <div class="container" data-aos="fade-down" data-aos-duration="1000" id="chart_div4" style="height:274px;font-family: Poppins;"></div>
-                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                               
                                 <script>
                                     google.charts.load('current', { packages: ['corechart', 'bar'] });
                                     google.charts.setOnLoadCallback(drawBasic);
@@ -183,7 +183,7 @@
                                 <div class="col" style="margin-top: 3%;text-align: center;">
                                 <!-- <img src="assets/img/image%2033.png" width="588" height="274" style="height: 304px;"> -->
                                 <div class="container" data-aos="fade-down" data-aos-duration="1000" id="chart_div5" style="height:174px;font-family: Poppins;"></div>
-                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                               
                                 <script>
                                     google.charts.load('current', { packages: ['corechart', 'bar'] });
                                     google.charts.setOnLoadCallback(drawBasic);

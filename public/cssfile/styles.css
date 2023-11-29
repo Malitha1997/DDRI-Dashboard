@@ -1,4 +1,13 @@
 .navbar {
   background: var(--bs-purple);
 }
+#div3{
+  margin-top:10%;
 
+}
+@media screen and (max-width: 600px){
+  #div3{
+    margin-top:20%;
+
+}
+}
