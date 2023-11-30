@@ -786,7 +786,7 @@ class HomeController extends Controller
     }
 
     public function download(){
-        $path=public_path('DDRI Report.pdf');
+        $path=public_path('DDRI -2023 Year in Review.pdf');
         return response()->download($path);
     }
 }
